@@ -1,14 +1,17 @@
 <?php
+
 namespace Zalo;
 
 use Zalo\ZaloEndPoint;
 
-class ZaloSdkTest{
+class ZaloSdkTest
+{
     protected static $instance;
     protected $zalo;
     protected $helper;
 
-    function sendMessage() {
+    function sendMessage()
+    {
         $cookie_name = "EA2Aus71pe4wUxIJP4Sv";
         if (!isset($_COOKIE[$cookie_name])) {
             echo "Cookie named '" . $cookie_name . "' is not set!";
@@ -20,11 +23,7 @@ class ZaloSdkTest{
             print_r($response->getDecodedBody());
             echo '<br><br>';
         }
-        return $cookie_name;
     }
-    }
-    $sendMessage = new sendMessage();
-    header('Content-Type: application/json');
-    echo $sendMessage ->sendMessage()
+}
 
-?>
+    echo '123';
