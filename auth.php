@@ -1,3 +1,4 @@
+<?php
 session_start();
 // Received callback data from oauth.zaloapp.com/v3/auth
 if ( isset($_GET['uid']) && isset($_GET['code']) && isset($_GET['state']) ) :
@@ -5,8 +6,8 @@ if ( isset($_GET['uid']) && isset($_GET['code']) && isset($_GET['state']) ) :
     // https://oauth.zalo.com/v3/access_token
     $url = "https://oauth.zaloapp.com/v3/access_token?"
           . http_build_query( array(
-                "app_id" => "{app-id}", // <- App ID
-                "app_secret" => "{app-secret}", // <- App Secret
+                "app_id" => "{3799894204854887828}", // <- App ID
+                "app_secret" => "{EA2Aus71pe4wUxIJP4Sv}", // <- App Secret
                 "code" => $_GET['code'] // <- oAuthCode
         ) );
     $curl = curl_init();
@@ -23,7 +24,9 @@ if ( isset($_GET['uid']) && isset($_GET['code']) && isset($_GET['state']) ) :
     curl_close($curl);
     // Store the User Access Token
     $r = json_decode($response);
-    $_SESSION["user_access_token"] = $r->access_token;
+    $_SESSION["6Q75B3ByNBIf564ZsSEK"] = $r->access_token;
     // Go back to index.php
     header("Location: /index.php");
 endif;
+
+?>
