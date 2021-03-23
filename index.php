@@ -3,7 +3,7 @@ session_start();
 // If the User Access Token is not available
 // perform an authorization request
 if ( !isset($_SESSION["user_access_token"]) ) :
-    $auth_uri = "https://oauth.zaloapp.com/v3/auth?"
+    $auth_uri = "https://oauth.zaloapp.com/v3/permission?"
                . http_build_query(array(
                      "app_id" => "{3799894204854887828}", // <- App ID
                      "redirect_uri" => "/auth.php",
