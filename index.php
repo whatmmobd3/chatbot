@@ -1,27 +1,30 @@
 <?php
 namespace Zalo;
 
-use Zalo\Builder\MessageBuilder;
 use Zalo\ZaloEndPoint;
 
 class ZaloSdkTest{
-    function API($accessToken) {
-        $msgBuilder = new MessageBuilder('text');
-        $msgBuilder->withUserId('494021888309207992');
-        $msgBuilder->withText('Message Text');
-        $msgText = $msgBuilder->build();
+    protected static $instance;
+    protected $zalo;
+    protected $helper;
 
-        // goi api
-        $response = $this->zalo->post(ZaloEndPoint::API_OA_SEND_MESSAGE, $accessToken, $msgText);
-        echo '<br><br>';
-        // lay du lieu tra ve
-        print_r($response->getDecodedBody());
-        echo '<br><br>';
-        // return $response->getDecodedBody();
+    function sendMessage() {
+        $cookie_name = "EA2Aus71pe4wUxIJP4Sv";
+        if (!isset($_COOKIE[$cookie_name])) {
+            echo "Cookie named '" . $cookie_name . "' is not set!";
+        } else {
+            $accessToken = $_COOKIE[$cookie_name];
+            $params = ['message' => 'Test function gui tin qua OA', 'to' => '6870335006918372741', 'link' => 'https://developers.zalo.me'];
+            $response = $this->zalo->post(ZaloEndPoint::API_GRAPH_MESSAGE, $accessToken, $params);
+            echo '<br><br>';
+            print_r($response->getDecodedBody());
+            echo '<br><br>';
         }
+        return $cookie_name;
     }
-    $API = new API;
+    }
+    $sendMessage = new sendMessage();
     header('Content-Type: application/json');
-    echo $API ->API('EA2Aus71pe4wUxIJP4Sv')
+    echo $sendMessage ->sendMessage()
 
 ?>
