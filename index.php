@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
     class API {
         function Select() {
-            $users = '{ "name":"PHP", "desc":"chatbot" }';
+            $users = '[{ "name":"PHP", "desc":"chatbot" }]';
             return json_decode($users);
         }
     }
