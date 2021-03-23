@@ -1,7 +1,7 @@
 <?php
     class API {
         function Select() {
-            $users = 'test 1';
+            $users = 'git hub';
            return json_encode($users);
         }
     }
