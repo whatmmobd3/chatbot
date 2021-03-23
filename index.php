@@ -2,7 +2,7 @@
 
     function sendMessage()
     {
-       echo 'Here is'
+       echo 'Here is';
     }
 
     sendMessage();
